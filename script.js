@@ -1,23 +1,24 @@
-function check() {
+async function check() {
     problem = document.getElementById('problem_id').value
     user = document.getElementById('user').value
 
-    fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://orac2.info/problem/"+problem+"/hof"))
-        .then(r => r.text())
-        .then(html => {
-            parser = new DOMParser();
-            doc = parser.parseFromString(html, "text/html");
-            title = doc.getElementsByClassName("mb-0")[0].innerText;
-            div = doc.querySelector("p#solversList");
-            html = div.innerHTML;
+    url = "https://orac2.info/problem/"+problem+"/hof"
+    result = await fetch("https://raspy-union-b9c5.acoder31415.workers.dev/?url="+encodeURIComponent(url))
+    html = await result.text()
 
-            result_div = document.getElementById('result')
-            if(html.includes(user)) {
-                result_div.innerText = 'User '+user+' has solved problem '+problem+' ('+title+'). The verification link is '+'https://aperson31415.github.io/orac_checker?problem_id='+problem_id+'&user='+user;
-            } else {
-                result_div.innerText = 'User '+user+' has not solved problem '+problem+' ('+title+'). The verification link is '+'https://aperson31415.github.io/orac_checker?problem_id='+problem_id+'&user='+user;
-            }
-    });
+    parser = new DOMParser();
+    doc = parser.parseFromString(html, "text/html");
+    console.log(doc)
+    title = doc.getElementsByClassName("mb-0")[0].innerText;
+    div = doc.querySelector("p#solversList");
+    content = div.innerHTML;
+
+    result_div = document.getElementById('result')
+    if(content.includes(user)) {
+        result_div.innerText = 'User '+user+' has solved problem '+problem+' ('+title+'). The verification link is '+'https://aperson31415.github.io/orac_checker?problem_id='+problem_id+'&user='+user;
+    } else {
+        result_div.innerText = 'User '+user+' has not solved problem '+problem+' ('+title+'). The verification link is '+'https://aperson31415.github.io/orac_checker?problem_id='+problem_id+'&user='+user;
+    }
 }
 
 window.addEventListener('load', (event) => {
