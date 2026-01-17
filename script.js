@@ -27,14 +27,15 @@ window.addEventListener('load', (event) => {
         problem_id = urlParams.get('problem_id')
         user = urlParams.get('user')
         if(problem_id == null || user == null) {
-            //
+            document.getElementById("checker").style.display = 'none';
         } else {
+            document.getElementById("generator").style.display = 'none';
             document.getElementById('problem_id').value = problem_id
             document.getElementById('user').value = user
             check()
         }
     } catch(error) {
-        //
+        document.getElementById("checker").style.display = 'none';
     }
 });
 
