@@ -7,18 +7,26 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <h1>ORAC Submission Checker</h1>
-        This is a tool to check submissions from the site <a href="https://orac2.info">orac2.info</a>. The problem id is the number that is at the end of the URL of orac problems. <br>
+        <h1>ORAC Submission Checker URL Generator</h1>
+        This is a tool to generate check submission URLs from the site <a href="https://orac2.info">orac2.info</a>. The problem id is the number that is at the end of the URL of orac problems. <br>
         Sorry that I haven't added any CSS yet so this looks ugly. Also, this is quite buggy because sometimes the CORS Proxy is down.<br><br>
         <hr>
-        Username: <input id="user" type="text" placeholder="Enter your ORAC username"><br>
-        Problem ID: <input id="problem_id" type="text" placeholder="Enter the Problem ID that you want to check"><br><br>
-        <button onclick="check()">Check</button><br><br>
-        <hr>
-        <div id="result">The result will appear here.</div>
-        <hr>
-        <h1>Manual Version</h1>
-        If you want to manually use this (like if the CORS Proxy is down or buggy for some reason), just include the link:<br>
-        https://aperson31415.github.io/orac_checker?problem_id=INSERTPROBLEMID&user=INSERTYOURUSERNAME
+        <details>
+            <summary>Checker (Please don't use unless you are a teacher)</summary>
+            Username: <input id="user" type="text" placeholder="Enter your ORAC username"><br>
+            Problem ID: <input id="problem_id" type="text" placeholder="Enter the Problem ID that you want to check"><br><br>
+            <button onclick="check()">Check</button><br><br>
+            <hr>
+            <div id="result">The result will appear here.</div>
+        </details>
+        <br><br>
+        <details>
+            <summary>Generator (Use for students)</summary>
+            Username: <input id="username" type="text" placeholder="Enter your ORAC username"><br>
+            Problem ID: <input id="problem" type="text" placeholder="Enter the Problem ID that you want to check"><br><br>
+            <button onclick="generate()">Generate</button><br><br>
+            <hr>
+            <div id="url">The URL will appear here.</div>
+        </details>
     </body>
 </html>
