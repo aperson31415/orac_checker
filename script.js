@@ -37,3 +37,9 @@ window.addEventListener('load', (event) => {
         //
     }
 });
+
+function generate() {
+    problem_id = document.getElementById('problem').value
+    user = document.getElementById('username').value
+    document.getElementById('url').innerText = 'https://aperson31415.github.io/orac_checker?problem_id='+problem_id+'&user='+user;
+}
