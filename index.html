@@ -11,7 +11,7 @@
         This is a tool to generate check submission URLs from the site <a href="https://orac2.info">orac2.info</a>. The problem id is the number that is at the end of the URL of orac problems. <br>
         Sorry that I haven't added any CSS yet so this looks ugly. Also, this is quite buggy because sometimes the CORS Proxy is down.<br><br>
         <hr>
-        <details>
+        <details id="checker">
             <summary>Checker (Please don't use unless you are a teacher)</summary>
             Username: <input id="user" type="text" placeholder="Enter your ORAC username"><br>
             Problem ID: <input id="problem_id" type="text" placeholder="Enter the Problem ID that you want to check"><br><br>
@@ -20,7 +20,7 @@
             <div id="result">The result will appear here.</div>
         </details>
         <br><br>
-        <details>
+        <details id="generator">
             <summary>Generator (Use for students)</summary>
             Username: <input id="username" type="text" placeholder="Enter your ORAC username"><br>
             Problem ID: <input id="problem" type="text" placeholder="Enter the Problem ID that you want to check"><br><br>
